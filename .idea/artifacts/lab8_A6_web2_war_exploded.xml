@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="lab8_A6_web2:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/lab8_A6_web2_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="lab8_A6_web2/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="lab8_A6_web2" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/../../../Apache Tomcat/webapps/examples/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../Apache Tomcat/webapps/examples/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" />
+        </element>
+        <element id="directory" name="src">
+          <element id="dir-copy" path="$PROJECT_DIR$/src" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
