@@ -1,5 +1,7 @@
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Calendar;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +15,7 @@ public class LogoutServlet extends ChatServlet {
             response) throws ServletException, IOException {
         String name = (String) request.getSession().getAttribute("name");
         // Если в сессии имеется имя пользователя...
-        if (name!=null) {
+        if (name != null) {
             // Получить объект, описывающий пользователя с таким именем
             ChatUser aUser = activeUsers.get(name);
             // Если идентификатор сессии пользователя, вошедшего под
@@ -24,7 +26,7 @@ public class LogoutServlet extends ChatServlet {
                     request.getSession().getId())) {
                 // Удалить пользователя из списка активных
                 // Т.к. запросы обрабатываются одновременно,
-// нужна синхронизация 
+// нужна синхронизация
                 synchronized (activeUsers) {
                     activeUsers.remove(name);
                 }
@@ -34,6 +36,7 @@ public class LogoutServlet extends ChatServlet {
                 response.addCookie(new Cookie("sessionId", null));
                 // Перенаправить на главную страницу
                 response.sendRedirect(response.encodeRedirectURL("/lab8_A6_web2/"));
+                NotifyWhoLeft(aUser);
             } else {
                 // Пользователь пытается аннулировать чужую сессию –
 // не делать ничего 
@@ -45,4 +48,13 @@ public class LogoutServlet extends ChatServlet {
         }
     }
 
-} 
+    protected void NotifyWhoLeft(ChatUser user){
+        String s1 = "Пользователь ";
+        String name = user.getName();
+        String s3 = " покинул чат.";
+        ChatMessage notifyMessage = new ChatMessage(s1 + name + s3, user,
+                Calendar.getInstance().getTimeInMillis());
+        messages.add(notifyMessage);
+    }
+
+}

@@ -1,6 +1,3 @@
-
-
-
 import java.io.IOException;
 import java.util.Calendar;
 import javax.servlet.ServletException;
@@ -17,9 +14,9 @@ public class NewMessageServlet extends ChatServlet {
         // то необходимо установить соответствующую кодировку HTTP-запроса
         request.setCharacterEncoding("UTF-8");
         // Извлечь из HTTP-запроса параметр 'message'
-        String message = (String)request.getParameter("message");
+        String message = (String) request.getParameter("message");
         // Если сообщение не пустое, то
-        if (message!=null && !"".equals(message)) {
+        if (message != null && !"".equals(message)) {
             // По имени из сессии получить ссылку на объект ChatUser
             ChatUser author = activeUsers.get((String)
                     request.getSession().getAttribute("name"));
