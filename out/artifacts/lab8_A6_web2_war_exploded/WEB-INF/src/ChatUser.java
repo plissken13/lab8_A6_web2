@@ -4,7 +4,7 @@ public class ChatUser {
     private String name;
     // Последнее время взаимодействия с сервером в количестве микросекунд,
     // прошедших с 1 января 1970 года
-    private long lastInteractionTime;
+    protected long lastInteractionTime;
     // Идентификатор Java-сессии пользователя
     private String sessionId;
 
