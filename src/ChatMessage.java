@@ -1,10 +1,6 @@
-
 public class ChatMessage {
-    // Текст сообщения
     private String message;
-    // Автор сообщения
     private ChatUser author;
-    // Временная метка сообщения (в микросекундах)
     private long timestamp;
 
     public ChatMessage(String message, ChatUser author, long timestamp) {

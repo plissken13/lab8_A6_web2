@@ -1,14 +1,9 @@
-
 public class ChatUser {
-    // Имя пользователя
     private String name;
-    // Последнее время взаимодействия с сервером в количестве микросекунд,
-    // прошедших с 1 января 1970 года
     protected long lastInteractionTime;
-    // Идентификатор Java-сессии пользователя
     private String sessionId;
 
-    public ChatUser(String name,long lastInteractionTime,String sessionId) {
+    public ChatUser(String name, long lastInteractionTime, String sessionId) {
         super();
         this.name = name;
         this.lastInteractionTime = lastInteractionTime;
